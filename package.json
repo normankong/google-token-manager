@@ -1,0 +1,29 @@
+{
+  "name": "google-token-manager",
+  "version": "1.0.0",
+  "description": "Google Token Manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "serve": "npx @google-cloud/functions-framework --target=refreshToken --port=8080",
+    "deploy-cloud-func": "gcloud functions deploy google-token-manager --runtime nodejs16 --entry-point refreshToken --trigger-http --allow-unauthenticated ",
+    "deploy-cloud-run" : "gcloud run deploy google-token-manager --platform=managed --allow-unauthenticated --region=us-west1 --source=.",
+    "create-source-repo" : "gcloud source repos create gcp_source_repo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/normankong/google-token-manager.git"
+  },
+  "keywords": [],
+  "author": "Norman Kong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/normankong/google-token-manager/issues"
+  },
+  "homepage": "https://github.com/normankong/google-token-manager#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "request": "^2.88.2"
+  }
+}
